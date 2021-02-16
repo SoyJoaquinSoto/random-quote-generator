@@ -18,7 +18,7 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <div className={`bg-${this.randomColor()}-500 h-screen w-screen`}>
+            <div className={`bg-${this.randomColor()}-500 h-screen w-screen grid grid-cols-2 gap-4`}>
                 
             </div>
         );
