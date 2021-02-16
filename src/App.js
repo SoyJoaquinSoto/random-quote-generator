@@ -1,5 +1,6 @@
 import React from "react"
 import QuoteTable from "./components/QuoteTable.js"
+import PullButton from "./components/PullButton.js"
 
 export default class App extends React.Component {
 
@@ -21,6 +22,7 @@ export default class App extends React.Component {
         return (
             <div className={`bg-${this.randomColor()}-500 h-screen w-screen grid grid-cols-2 gap-4`}>
                 <QuoteTable />
+                <PullButton />
             </div>
         );
     }
