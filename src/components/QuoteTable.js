@@ -16,7 +16,7 @@ export default function QuoteTable() {
 			);
 			quoteData = request.data.data[0];
 			console.log(quoteData.quoteText.length);
-			if (quoteData.quoteText.length > 120) {
+			if (quoteData.quoteText.length > 110) {
 				fetchData();
 			} else {
 				setText(quoteData.quoteText);
