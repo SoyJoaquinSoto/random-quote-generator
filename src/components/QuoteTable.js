@@ -9,12 +9,19 @@ export default function QuoteTable() {
 
 	useEffect(() => {
 		async function fetchData() {
-			const request = await axios.get(
+			var request;
+			var quoteData;
+			request = await axios.get(
 				"https://quote-garden.herokuapp.com/api/v3/quotes/random"
 			);
-			const quoteData = request.data.data[0];
-			setText(quoteData.quoteText);
-			setAuthor(quoteData.quoteAuthor);
+			quoteData = request.data.data[0];
+			console.log(quoteData.quoteText.length);
+			if (quoteData.quoteText.length > 120) {
+				fetchData();
+			} else {
+				setText(quoteData.quoteText);
+				setAuthor(quoteData.quoteAuthor);
+			}
 		}
 		fetchData();
 	}, []);
