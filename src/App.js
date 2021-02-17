@@ -19,7 +19,7 @@ export default function App() {
 
 	return (
 		<div
-			className={`bg-${randomColor()}-500 h-screen w-screen grid grid-cols-2`}
+			className={`bg-${randomColor()}-500 h-screen w-screen grid grid-cols-1 lg:grid-cols-2`}
 		>
 			<QuoteTable />
 			<PullButton />
