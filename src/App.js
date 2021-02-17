@@ -1,29 +1,28 @@
-import React from "react"
-import QuoteTable from "./components/QuoteTable.js"
-import PullButton from "./components/PullButton.js"
+import React from "react";
+import QuoteTable from "./components/QuoteTable.js";
+import PullButton from "./components/PullButton.js";
 
-export default class App extends React.Component {
+export default function App() {
+  const randomColor = () => {
+    const colors = [
+      "gray",
+      "red",
+      "yellow",
+      "green",
+      "blue",
+      "indigo",
+      "purple",
+      "pink",
+    ];
+    return colors[Math.floor(Math.random() * 8)];
+  };
 
-    randomColor() {
-        const colors = [
-            "gray",
-            "red",
-            "yellow",
-            "green",
-            "blue",
-            "indigo",
-            "purple",
-            "pink",
-        ]
-        return colors[Math.floor(Math.random() * 8)];
-    }
-
-    render() {
-        return (
-            <div className={`bg-${this.randomColor()}-500 h-screen w-screen grid grid-cols-2`}>
-                <QuoteTable />
-                <PullButton />
-            </div>
-        );
-    }
+  return (
+    <div
+      className={`bg-${randomColor()}-500 h-screen w-screen grid grid-cols-2`}
+    >
+      <QuoteTable />
+      <PullButton />
+    </div>
+  );
 }
