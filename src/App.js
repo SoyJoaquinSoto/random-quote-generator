@@ -10,6 +10,7 @@ export default function App() {
 		quoteAuthor: null,
 		quoteGenre: null,
 	});
+	const [quoteNum, setQuoteNum] = useState(0);
 
 	useEffect(() => {
 		setColor(randomColor());
@@ -23,15 +24,14 @@ export default function App() {
 				fetchData();
 				return;
 			}
-			if (quoteData.quoteText.length > 110) {
+			if (quoteData.quoteText.length > 100) {
 				fetchData();
 			} else {
 				setData(quoteData);
-				console.log(quoteData);
 			}
 		}
 		fetchData();
-	}, []);
+	}, [quoteNum]);
 
 	const randomColor = () => {
 		const colors = [
@@ -50,14 +50,22 @@ export default function App() {
 	const handleClick = () => {
 		console.log("botón picado");
 		setColor(randomColor());
+		setData({
+			quoteText: null,
+			quoteAuthor: null,
+			quoteGenre: null,
+		});
+		setQuoteNum(quoteNum + 1);
 	};
 
 	return (
-		<div
-			className={`bg-${color}-500 h-screen w-screen grid grid-cols-1 lg:grid-cols-2`}
-		>
-			<QuoteTable data={data} />
+		<div className={`relative`}>
 			<PullButton onClick={() => handleClick()} />
+			<div
+				className={`bg-${color}-500 h-screen w-screen grid grid-cols-1 lg:grid-cols-2`}
+			>
+				<QuoteTable data={data} />
+			</div>
 		</div>
 	);
 }
