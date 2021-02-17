@@ -7,9 +7,9 @@ import QuoteGenre from "./QuoteGenre.js";
 export default function QuoteTable(props) {
 	return (
 		<div className={`h-auto w-5/6 m-auto`}>
-			<QuoteText text={props.data.quoteText} />
-			<QuoteAuthor author={props.data.quoteAuthor} />
-			<QuoteGenre genre={props.data.quoteGenre} />
+			<QuoteText text={props.quoteText} />
+			<QuoteAuthor author={props.quoteAuthor} />
+			<QuoteGenre genre={props.quoteGenre} />
 		</div>
 	);
 }
