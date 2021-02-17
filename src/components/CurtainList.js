@@ -6,7 +6,8 @@ export default function CurtainList(props) {
 	const listQuotes = quotes.map((quote) => {
 		return (
 			<Curtain
-				key={quote._id}
+				key={quote.key}
+				color={quote.color}
 				quoteText={quote.quoteText}
 				quoteAuthor={quote.quoteAuthor}
 				quoteGenre={quote.quoteGenre}
