@@ -10,28 +10,23 @@ export default function App() {
 		quoteAuthor: null,
 		quoteGenre: null,
 	});
-	const [quoteNum, setQuoteNum] = useState(0);
 
 	useEffect(() => {
-		setColor(randomColor());
+		resetQuote();
+	}, []);
 
-		async function fetchData() {
-			const request = await axios.get(
-				"https://quote-garden.herokuapp.com/api/v3/quotes/random"
-			);
-			const quoteData = request.data.data[0];
-			if (!quoteData) {
-				fetchData();
-				return;
-			}
-			if (quoteData.quoteText.length > 100) {
-				fetchData();
-			} else {
-				setData(quoteData);
-			}
-		}
-		fetchData();
-	}, [quoteNum]);
+	function fetchData() {
+		axios
+			.get("https://quote-garden.herokuapp.com/api/v3/quotes/random")
+			.then((res) => {
+				const quoteData = res.data.data[0];
+				if (quoteData.quoteText.length > 100) {
+					fetchData();
+				} else {
+					setData(quoteData);
+				}
+			});
+	}
 
 	const randomColor = () => {
 		const colors = [
@@ -47,20 +42,19 @@ export default function App() {
 		return colors[Math.floor(Math.random() * 8)];
 	};
 
-	const handleClick = () => {
-		console.log("botón picado");
+	const resetQuote = () => {
 		setColor(randomColor());
 		setData({
 			quoteText: null,
 			quoteAuthor: null,
 			quoteGenre: null,
 		});
-		setQuoteNum(quoteNum + 1);
+		fetchData();
 	};
 
 	return (
 		<div className={`relative`}>
-			<PullButton onClick={() => handleClick()} />
+			<PullButton onClick={() => resetQuote()} />
 			<div
 				className={`bg-${color}-500 h-screen w-screen grid grid-cols-1 lg:grid-cols-2`}
 			>
