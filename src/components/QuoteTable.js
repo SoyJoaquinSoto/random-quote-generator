@@ -17,7 +17,6 @@ export default function QuoteTable() {
 				"https://quote-garden.herokuapp.com/api/v3/quotes/random"
 			);
 			quoteData = request.data.data[0];
-			console.log(quoteData.quoteText.length);
 			if (quoteData.quoteText.length > 110) {
 				fetchData();
 			} else {
