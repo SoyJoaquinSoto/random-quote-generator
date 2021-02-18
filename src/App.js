@@ -34,5 +34,7 @@ export default function App() {
 		fetchNextQuote();
 	}, []);
 
+	const TITLE = "Random Quote Generator";
+
 	return <CurtainList quotes={quotes} onClick={() => fetchNextQuote()} />;
 }
