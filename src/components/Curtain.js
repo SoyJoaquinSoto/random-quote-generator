@@ -1,10 +1,12 @@
 import React from "react";
 import QuoteTable from "./QuoteTable.js";
 import PullButton from "./PullButton.js";
+import { animated } from "react-spring";
 
 export default function Curtain(props) {
+	console.log(props);
 	return (
-		<li className={`relative`}>
+		<animated.li style={{ ...props.style }} className={`absolute`}>
 			<PullButton onClick={() => props.onClick()} />
 			<div
 				className={`bg-${props.color}-500 h-screen w-screen grid grid-cols-1 lg:grid-cols-2`}
@@ -15,6 +17,6 @@ export default function Curtain(props) {
 					quoteGenre={props.quoteGenre}
 				/>
 			</div>
-		</li>
+		</animated.li>
 	);
 }
