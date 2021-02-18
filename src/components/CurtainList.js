@@ -27,15 +27,6 @@ export default function CurtainList(quotes) {
 	return (
 		<ul>
 			{transitions.map(({ item, props, key }) => {
-				/* while (
-					(index >= quotes.quotes.length || index < 0) &&
-					quotes.quotes.length !== 0
-				) {
-					console.log("bajando de ", index);
-					const i = index - 1;
-					set(i);
-					console.log("a ", index, i);
-				} */
 				return quotes.quotes[item] ? (
 					<Curtain
 						key={key}
@@ -60,19 +51,4 @@ export default function CurtainList(quotes) {
 			})}
 		</ul>
 	);
-	/* 	const quotes = props.quotes;
-	const listQuotes = quotes.map((quote) => {
-		return (
-			<Curtain
-				key={quote.key}
-				color={quote.color}
-				quoteText={quote.quoteText}
-				quoteAuthor={quote.quoteAuthor}
-				quoteGenre={quote.quoteGenre}
-				onClick={() => props.onClick()}
-			/>
-		);
-	});
-
-	return <ul>{listQuotes}</ul>; */
 }
