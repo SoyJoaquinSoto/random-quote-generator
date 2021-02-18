@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import Curtain from "./Curtain.js";
 import { useTransition } from "react-spring";
 
