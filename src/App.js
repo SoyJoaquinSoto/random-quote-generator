@@ -30,7 +30,6 @@ export default function App() {
 			};
 			newQuotes = [...quotes, newQuote];
 			setQuotes(newQuotes);
-			console.log(quotes);
 		});
 	};
 

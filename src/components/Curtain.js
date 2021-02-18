@@ -4,7 +4,6 @@ import PullButton from "./PullButton.js";
 import { animated } from "react-spring";
 
 export default function Curtain(props) {
-	console.log(props);
 	return (
 		<animated.li style={{ ...props.style }} className={`absolute`}>
 			<PullButton onClick={() => props.onClick()} />
