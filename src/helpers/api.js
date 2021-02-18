@@ -5,17 +5,14 @@ const instance = axios.create({
 });
 
 export default function fetchQuote(fetchUrl) {
+	console.log(fetchUrl);
 	return instance.get(fetchUrl).then((res) => {
 		var response = res.data;
 		var quotesData = res.data.data.filter(
 			(quote) => quote.quoteText.length < 100
 		);
 		if (!quotesData.length) {
-			if (fetchUrl === "/random") {
-				response = fetchQuote();
-			} else {
-				response = null;
-			}
+			response = fetchUrl === "/random" ? fetchQuote(fetchUrl) : null;
 		}
 		return response;
 	});

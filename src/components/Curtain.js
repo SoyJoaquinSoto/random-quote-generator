@@ -13,9 +13,10 @@ export default function Curtain(props) {
 					quoteText={props.quoteText}
 					quoteAuthor={props.quoteAuthor}
 					quoteGenre={props.quoteGenre}
+					onClick={() => props.onClick("?author=" + props.quoteAuthor)}
 				/>
 
-				<PullButton onClick={() => props.onClick()} />
+				<PullButton onClick={() => props.onClick("/random")} />
 			</div>
 		</animated.li>
 	);

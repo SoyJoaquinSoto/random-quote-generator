@@ -7,7 +7,7 @@ export default function QuoteTable(props) {
 	return (
 		<div className={`h-auto w-5/6 m-auto`}>
 			<QuoteText text={props.quoteText} />
-			<QuoteAuthor author={props.quoteAuthor} />
+			<QuoteAuthor author={props.quoteAuthor} onClick={() => props.onClick()} />
 			<QuoteGenre genre={props.quoteGenre} />
 		</div>
 	);

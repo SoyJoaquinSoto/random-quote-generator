@@ -6,7 +6,7 @@ import randomColor from "./helpers/randomColor.js";
 export default function App() {
 	const [quotes, setQuotes] = useState([]);
 
-	const fetchNextQuote = () => {
+	const fetchNextQuote = (fetchUrl) => {
 		var quotesCopy = [...quotes];
 		var newQuote = {
 			loading: true,
@@ -18,7 +18,7 @@ export default function App() {
 		};
 		var newQuotes = [...quotesCopy, newQuote];
 		setQuotes(newQuotes);
-		fetchQuote("/random").then((randomQuote) => {
+		fetchQuote(fetchUrl).then((randomQuote) => {
 			newQuote = {
 				...newQuote,
 				...randomQuote.data[0],
@@ -31,8 +31,13 @@ export default function App() {
 	};
 
 	useEffect(() => {
-		fetchNextQuote();
+		fetchNextQuote("/random");
 	}, []);
 
-	return <CurtainList quotes={quotes} onClick={() => fetchNextQuote()} />;
+	return (
+		<CurtainList
+			quotes={quotes}
+			onClick={(fetchUrl) => fetchNextQuote(fetchUrl)}
+		/>
+	);
 }

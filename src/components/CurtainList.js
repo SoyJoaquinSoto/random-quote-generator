@@ -6,11 +6,12 @@ export default function CurtainList(quotes) {
 	const [index, set] = useState(0);
 	const [isDisabled, setIsDisabled] = useState(false);
 
-	const onClick = () => {
+	const onClick = (fetchUrl) => {
+		console.log(fetchUrl);
 		if (!isDisabled) {
 			setIsDisabled(true);
 			setTimeout(() => setIsDisabled(false), 2500);
-			quotes.onClick();
+			quotes.onClick(fetchUrl);
 			if (quotes.quotes.length > index) {
 				set(quotes.quotes.length);
 			}
@@ -43,7 +44,7 @@ export default function CurtainList(quotes) {
 						quoteAuthor={quotes.quotes[item].quoteAuthor}
 						quoteGenre={quotes.quotes[item].quoteGenre}
 						style={props}
-						onClick={() => onClick()}
+						onClick={(fetchUrl) => onClick(fetchUrl)}
 					/>
 				) : (
 					<Curtain
@@ -53,7 +54,7 @@ export default function CurtainList(quotes) {
 						quoteAuthor={null}
 						quoteGenre={null}
 						style={null}
-						onClick={() => onClick()}
+						onClick={(fetchUrl) => onClick(fetchUrl)}
 					/>
 				);
 			})}
