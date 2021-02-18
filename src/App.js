@@ -18,7 +18,7 @@ export default function App() {
 		};
 		var newQuotes = [...quotesCopy, newQuote];
 		setQuotes(newQuotes);
-		fetchQuote().then((randomQuote) => {
+		fetchQuote("/random").then((randomQuote) => {
 			newQuote = {
 				...newQuote,
 				...randomQuote.data[0],
@@ -33,8 +33,6 @@ export default function App() {
 	useEffect(() => {
 		fetchNextQuote();
 	}, []);
-
-	const TITLE = "Random Quote Generator";
 
 	return <CurtainList quotes={quotes} onClick={() => fetchNextQuote()} />;
 }
