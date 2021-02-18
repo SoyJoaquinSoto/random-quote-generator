@@ -6,15 +6,16 @@ import { animated } from "react-spring";
 export default function Curtain(props) {
 	return (
 		<animated.li style={{ ...props.style }} className={`absolute`}>
-			<PullButton onClick={() => props.onClick()} />
 			<div
-				className={`bg-${props.color}-500 h-screen w-screen grid grid-cols-1 lg:grid-cols-2`}
+				className={`bg-${props.color}-500 h-screen w-screen grid grid-cols-1 lg:grid-cols-2 border-t-2 border-white`}
 			>
 				<QuoteTable
 					quoteText={props.quoteText}
 					quoteAuthor={props.quoteAuthor}
 					quoteGenre={props.quoteGenre}
 				/>
+
+				<PullButton onClick={() => props.onClick()} />
 			</div>
 		</animated.li>
 	);
