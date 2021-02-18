@@ -6,6 +6,7 @@ export default function PullButton(props) {
 		<div className={`grid grid-rows-3 border-t-2 border-white lg:border-0`}>
 			<div className={`grid grid-cols-2`}>
 				<div className={`border-r-4 border-black`}></div>
+				<div className={`border-l-4 border-black`}></div>
 			</div>
 			<div>
 				<div className={`w-1/6 mx-auto`}>
